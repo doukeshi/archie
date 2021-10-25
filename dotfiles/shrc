@@ -1,0 +1,11 @@
+alias gti='git'
+alias gst='git status'
+alias ga='git add'
+
+alias cd..='cd ..'
+alias rm='rm -i'
+alias vi='vim'
+
+alias ls='ls -hs --color=auto'
+alias ll='ls -l'
+alias la='ls -al'

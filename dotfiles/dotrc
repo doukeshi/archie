@@ -1,0 +1,5 @@
+dothome=/opt/archie/dotfiles
+
+[[ -r $dothome ]] && export DOTFILE_HOME=$dothome
+
+unset dothome

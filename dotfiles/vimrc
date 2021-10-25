@@ -1,0 +1,17 @@
+set number
+" set relativenumber
+set laststatus=2
+
+" tab
+set expandtab       " use spaces when <Tab> is inserted
+set smarttab        " use 'shiftwidth' when inserting <Tab>
+" set tabstop=8     " number of spaces that <Tab> in file uses
+set softtabstop=4   " number of spaces that <Tab> uses while editing
+
+" indent
+set autoindent
+set shiftwidth=4    " number of spaces to use for (auto)indent step
+set shiftround      " round indent to multiple of shiftwidth
+
+set smartcase
+set autochdir

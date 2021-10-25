@@ -1,0 +1,32 @@
+PROMPT='[%F{green}%n%f%F{cyan}@%f%F{yellow}%m%f %F{red}❤️%f %F{cyan}%~%f] %(?.%F{green}√%f.%F{yellow}⚠️ %?%f) [%*] %F{red}%(!.#.$)%f '
+
+# history
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=1000000
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
+
+# directory stack
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+
+# completion
+autoload -Uz compinit; compinit
+
+# plugins
+[[ -f $ZSH_PLUGIN_HOME/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
+    source $ZSH_PLUGIN_HOME/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+[[ -f $ZSH_PLUGIN_HOME/zsh-completions/zsh-completions.zsh ]] &&
+    source $ZSH_PLUGIN_HOME/zsh-completions/zsh-completions.zsh
+
+if [[ -f $ZSH_PLUGIN_HOME/zsh-history-substring-search/zsh-history-substring-search.zsh ]]; then
+    source $ZSH_PLUGIN_HOME/zsh-history-substring-search/zsh-history-substring-search.zsh
+    bindkey '^[[A' history-substring-search-up
+    bindkey '^[[B' history-substring-search-down
+fi
+
+[[ -f $ZSH_PLUGIN_HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
+    source $ZSH_PLUGIN_HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
