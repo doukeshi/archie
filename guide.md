@@ -12,8 +12,7 @@
 ## X
 
 ```
-# pacman -S intel-ucode/amd-ucode iwd
-# pacman -S base-devel git vim zsh tmux dnsmasq openssh
+# pacman -S intel-ucode/amd-ucode iwd base-devel vim
 # pacman -S noto-fonts (noto-fonts-cjk noto-fonts-emoji noto-fonts-extra)
 
 // Timezone

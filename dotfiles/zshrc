@@ -1,4 +1,5 @@
-PROMPT='[%F{green}%n%f%F{cyan}@%f%F{yellow}%m%f %F{red}❤️%f %F{cyan}%~%f] %(?.%F{green}√%f.%F{yellow}⚠️ %?%f) [%*] %F{red}%(!.#.$)%f '
+PROMPT='[%F{green}%n%f%F{cyan}@%f%F{yellow}%m%f %F{red}❤️%f %F{cyan}%~%f] %F{red}%(!.#.$)%f '
+RPROMPT='%(?.%F{green}√%f.%F{yellow}⚠️ %?%f) [%*]'
 
 # history
 HISTFILE=$HOME/.zsh_history
@@ -14,19 +15,23 @@ setopt PUSHD_IGNORE_DUPS
 
 # completion
 autoload -Uz compinit; compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 
 # plugins
+[[ -f $ZSH_PLUGIN_HOME/z/z.sh ]] && source $ZSH_PLUGIN_HOME/z/z.sh
+
 [[ -f $ZSH_PLUGIN_HOME/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
     source $ZSH_PLUGIN_HOME/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 [[ -f $ZSH_PLUGIN_HOME/zsh-completions/zsh-completions.zsh ]] &&
     source $ZSH_PLUGIN_HOME/zsh-completions/zsh-completions.zsh
 
+[[ -f $ZSH_PLUGIN_HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
+    source $ZSH_PLUGIN_HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 if [[ -f $ZSH_PLUGIN_HOME/zsh-history-substring-search/zsh-history-substring-search.zsh ]]; then
     source $ZSH_PLUGIN_HOME/zsh-history-substring-search/zsh-history-substring-search.zsh
     bindkey '^[[A' history-substring-search-up
     bindkey '^[[B' history-substring-search-down
 fi
-
-[[ -f $ZSH_PLUGIN_HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
-    source $ZSH_PLUGIN_HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
