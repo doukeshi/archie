@@ -29,12 +29,13 @@ $ qemu-img create -f qcow2 arch.img 32G
 # ip link set dev tap0 master br0
 ```
 
-### qemu boot
+### qemu uefi boot
 
 ```
-$ qemu-system-x86_64 -daemonize -enable-kvm -boot menu=on \
+$ qemu-system-x86_64 -daemonize -enable-kvm -cpu host -m 4096 \
 -bios /usr/share/edk2-ovmf/x64/OVMF_CODE.fd \
--cpu host -m 4096 \
+-drive file=/usr/share/edk2-ovmf/x64/OVMF_CODE.fd,if=pflash,format=raw,unit=0,readonly=on \
+-drive file=/usr/share/edk2-ovmf/x64/OVMF_VARS.fd,if=pflash,format=raw,unit=1,readonly=on \
 -nic tap,ifname=tap0,script=no,downscript=no,vhost=on,model=virtio-net-pci \
 -device virtio-vga-gl -display gtk,gl=on \
 -drive file=/opt/vms/arch.img,if=virtio

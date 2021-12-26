@@ -18,6 +18,12 @@ autoload -Uz compinit; compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 
+# vi mode
+bindkey -v
+export KEYTIMEOUT=1
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^v' edit-command-line
+
 # plugins
 [[ -f $ZSH_PLUGIN_HOME/z/z.sh ]] && source $ZSH_PLUGIN_HOME/z/z.sh
 
@@ -34,4 +40,10 @@ if [[ -f $ZSH_PLUGIN_HOME/zsh-history-substring-search/zsh-history-substring-sea
     source $ZSH_PLUGIN_HOME/zsh-history-substring-search/zsh-history-substring-search.zsh
     bindkey '^[[A' history-substring-search-up
     bindkey '^[[B' history-substring-search-down
+fi
+
+# ruby
+if [[ -x "$(command -v ruby)" ]]; then
+    export GEM_HOME=$HOME/.gem
+    export PATH=$GEM_HOME/bin:$PATH
 fi

@@ -12,7 +12,7 @@
 ## X
 
 ```
-# pacman -S intel-ucode/amd-ucode iwd base-devel vim
+# pacman -S intel-ucode/amd-ucode iwd base-devel vi
 # pacman -S noto-fonts (noto-fonts-cjk noto-fonts-emoji noto-fonts-extra)
 
 // Timezone

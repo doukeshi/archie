@@ -53,8 +53,9 @@ endif
 Generate ~/.gitconfig
 
 ```
-$ git config --global core.editor vim
+$ git config --global core.editor nvim
 $ git config --global core.excludesfile ~/.gitignore_global
+$ git config --global core.autocrlf input
 $ git config --global user.name doukeshi
 $ git config --global user.email doukeshi@users.noreply.github.com
 $ git config --global user.signingkey 58B7C4175A06DDB5

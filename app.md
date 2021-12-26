@@ -5,7 +5,9 @@
 ```
 # pacman -S chromium
 # pacman -S alsa-utils mpv
-# pacman -S git zsh tmux emacs dnsmasq openssh
+# pacman -S git zsh vim neovim emacs tmux
+# pacman -S gdb
+# pacman -S dnsmasq openssh
 
 $ yay -S vscodium-bin
 ```

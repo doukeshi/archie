@@ -2,9 +2,8 @@ alias gti='git'
 alias gst='git status'
 alias ga='git add'
 
-alias cd..='cd ..'
 alias rm='rm -i'
-alias vi='vim'
+alias nvi='nvim'
 
 alias grep='grep --color=auto'
 alias ls='ls -hs --color=auto'
