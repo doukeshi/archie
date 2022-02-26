@@ -16,6 +16,7 @@ $ cp dotfiles/dotrc ~/.dotrc
 ### bash
 
 ```
+# pacman -S bash-completion
 $ cat ~/.bashrc
 source $HOME/.dotrc
 [[ -f $DOTFILE_HOME/shrc ]] && source $DOTFILE_HOME/shrc

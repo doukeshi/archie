@@ -41,26 +41,9 @@ $ qemu-system-x86_64 -daemonize -enable-kvm -cpu host -m 4096 \
 -drive file=/opt/vms/arch.img,if=virtio
 ```
 
-## cdrom option
-
-```
--cdrom /opt/vms/archlinux-2021.10.01-x86_64.iso
-```
-
 ## Folder Sharing
 
 ```
-host # /usr/lib/qemu/virtiofsd --socket-path=/var/run/qemu-virtiofs.sock -o source=/share -o cache=always
-host # chown x:kvm /var/run/qemu-virtiofs.sock
-
-guest # mount -t virtiofs vfs /mnt/vfs
-```
-
-### qemu options:
-
-```
--object memory-backend-memfd,id=mem,size=4G,share=on \
--numa node,memdev=mem \
--chardev socket,id=char0,path=/var/run/qemu-virtiofs.sock \
--device vhost-user-fs-pci,chardev=char0,tag=vfs \
+host qemu > -virtfs local,path=/opt,mount_tag=vfs,security_model=passthrough
+guest # mount -t 9p -o trans=virtio,version=9p2000.L vfs /mnt/vfs
 ```
